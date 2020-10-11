@@ -1,0 +1,39 @@
+header {
+  text-align: center;
+  font-weight: bold;
+  color: teal;
+}
+
+#codequiz {
+  font-size: xx-large;
+  margin-bottom: 2%;
+}
+
+#subheader {
+  font-size: large;
+  margin-bottom: 8%;
+}
+
+.container {
+  text-align: center;
+}
+
+/*Button design*/
+button {
+  font-size: x-large;
+  margin-top: 3%;
+}
+
+#timer {
+  float: right;
+  margin-right: 3%;
+}
+
+#highscore {
+  float: left;
+  margin-left: 3%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
