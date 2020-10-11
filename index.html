@@ -3,32 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coding Quiz Homework#4</title>
+  <title>Coding Quiz Homework #4</title>
   <link type="text" href="./assets/WorksCited.txt">
   <link rel="stylesheet" href="./assets/reset.css">
   <link rel="stylesheet" href="./style.css">
-
+  
 </head>
 <body>
-    <header>
-      <h1 id="codequiz">
-        Coding Quiz
-      </h1>
-      <h4 id="subheader">
-        Test Your Knowledge
-      </h4>
-    </header>
+      <header>
+        <h1 id="codequiz">
+          Coding Quiz
+        </h1>
+        <h4 id="subheader">
+          Test Your Knowledge
+        </h4>
+      </header>
+  
+    <section class="container">
+      <div>
+        <h5 id="highscore">
+          <a href="#">
+            View Highscores
+          </a>
+        </h4>
+        <h5 class="time"></h5>
+      </div>
+
+      <br/>
+      <br/>
+      <br/>
+
+      <button id="start">Start!</button>
+
+      <!--The Modal-->
+      <div id="modal" class="modal">
+        <h4 class="question">question goes here</h4>
+        <ul class="selectAnswer">
+          <li class="answerA">A</li>
+          <li class="answerB">B</li>
+          <li class="answerC">C</li>
+          <li class="answerD">D</li>
+        </ul>
+        <p class="response">correct or wrong</p>
+      </div>
+
+  </section>
  
-  <main class="container">
-    <section>
-      <h5 id="highscore">View Highscores</h4>
-      <h5 id="timer">Time: <span>x</span></h5>
-    </section>
-
-    <button id="start">Start!</button>
-  </main>
-
-  <script type="text/javascript" href="./script.js"></script>
+<script type="text/javascript" src="./script.js"></script>
 
 </body>
 </html>

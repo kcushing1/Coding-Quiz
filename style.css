@@ -24,7 +24,7 @@ button {
   margin-top: 3%;
 }
 
-#timer {
+.time {
   float: right;
   margin-right: 3%;
 }
@@ -32,6 +32,15 @@ button {
 #highscore {
   float: left;
   margin-left: 3%;
+}
+
+.modal {
+  display: none;
+  z-index: 1;
+  overflow: hidden;
+  background-color: salmon;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 body {
