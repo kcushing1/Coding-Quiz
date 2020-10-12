@@ -4,12 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coding Quiz Homework #4</title>
+
   <link type="text" href="./assets/WorksCited.txt">
-  <link rel="stylesheet" href="./assets/reset.css">
+  
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="./style.css">
   
 </head>
 <body>
+  <div class="container">
       <header>
         <h1 id="codequiz">
           Coding Quiz
@@ -20,34 +30,35 @@
       </header>
   
     <section class="container">
-      <div>
-        <h5 id="highscore">
+      <div class="row">
+        <h4 id="highscore" class="col">
           <a href="#">
             View Highscores
           </a>
         </h4>
-        <h5 class="time"></h5>
+        <h5 class="time col"></h5>
       </div>
 
-      <br/>
-      <br/>
-      <br/>
+      <button id="start" class="btn btn-lg btn-secondary">Start!</button>
 
-      <button id="start">Start!</button>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="questions-here"></h4>
+          <div class="mult-choice">
+            <button id="btnA" class="btn btn-sm btn-outline-secondary btn-block"><span id="choiceA"></span></button>
 
-      <!--The Modal-->
-      <div id="modal" class="modal">
-        <h4 class="question">question goes here</h4>
-        <ul class="selectAnswer">
-          <li class="answerA">A</li>
-          <li class="answerB">B</li>
-          <li class="answerC">C</li>
-          <li class="answerD">D</li>
-        </ul>
-        <p class="response">correct or wrong</p>
+            <button id="btnB" class="btn btn-sm btn-outline-secondary btn-block"><span id="choiceB"></span></button>
+
+            <button id="btnC" class="btn btn-sm btn-outline-secondary btn-block"><span id="choiceC"></span></button>
+
+            <button id="btnD" class="btn btn-sm btn-outline-secondary btn-block"><span id="choiceD"></span></button>
+          </div>
+          <h6 id="responseHere"></h6>
+        </div>
       </div>
 
   </section>
+</div>
  
 <script type="text/javascript" src="./script.js"></script>
 

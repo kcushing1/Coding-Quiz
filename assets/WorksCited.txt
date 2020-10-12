@@ -1,0 +1,2 @@
+made with help from:
+Yalphi. "how to make a simple JavaScript quiz". Blog: simplestepscode.com. <https://simplestepscode.com/javascript-quiz-tutorial/>

@@ -24,23 +24,10 @@ button {
   margin-top: 3%;
 }
 
-.time {
-  float: right;
-  margin-right: 3%;
-}
-
-#highscore {
-  float: left;
-  margin-left: 3%;
-}
-
-.modal {
+.card {
   display: none;
   z-index: 1;
   overflow: hidden;
-  background-color: salmon;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 body {
