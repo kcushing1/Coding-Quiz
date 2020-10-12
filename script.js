@@ -8,6 +8,8 @@ let multChoiceA = document.querySelector("#btnA")
 let multChoiceB = document.querySelector("#btnB")
 let multChoiceC = document.querySelector("#btnC")
 let multChoiceD = document.querySelector("#btnD")
+let btnSelected = document.querySelector(".btn")
+let responseMsg = document.querySelector("#responseHere")
 
 const theQuestions =[
   {question: "stringA",
@@ -32,7 +34,7 @@ const theQuestions =[
       {list: "answer 2d",
         response: false},
     ]},
-    {question: "stringB",
+    {question: "stringC",
     answer: [
       {list: "answer 3a",
         response: true},
@@ -50,8 +52,10 @@ function setTime(){
     secCountdown--;
     timeEl.textContent = "Time: " + secCountdown;
 
-    if(secCountdown === 0){
+    if(secCountdown == 0 || secCountdown < 0){
       clearInterval(timerInterval);
+      timeEl.style.display = "none";
+      theCard.style.display = "none"
       //stop quiz function here
     }
   }, 1000);
@@ -60,7 +64,6 @@ function setTime(){
 }
 
 startBtn.addEventListener("click", function(){
-  theCard.style.display = "block";
   startBtn.style.display = "none";
   timeEl.style.display = "block";
   setTime();
@@ -69,21 +72,25 @@ startBtn.addEventListener("click", function(){
 })
 
 function generateQuiz(){
-    
+  theCard.style.display = "block";
+  //elements that will be manipulated
+  let questionIndex = 0 
+  let placeQuestion = document.createElement("h4");
+  let btnTextA = document.createElement("p")
+  let btnTextB = document.createElement("p")
+  let btnTextC = document.createElement("p")
+  let btnTextD = document.createElement("p")
+  let wrongAnswer = document.createElement("p")
+  let correctAnswer = document.createElement("p") 
+
   function showQuestion(){
-      let questionIndex = 0
       let listQuestion = theQuestions[questionIndex].question
-      let placeQuestion = document.createElement("h4");
       placeQuestion.textContent = listQuestion
       questionEl.appendChild(placeQuestion)
          
     console.log("showQs is connected")
   
     function showAnswers(){
-      let btnTextA = document.createElement("p")
-      let btnTextB = document.createElement("p")
-      let btnTextC = document.createElement("p")
-      let btnTextD = document.createElement("p")
       let answerA = theQuestions[questionIndex].answer[0].list
       let answerB = theQuestions[questionIndex].answer[1].list
       let answerC = theQuestions[questionIndex].answer[2].list
@@ -98,10 +105,100 @@ function generateQuiz(){
       multChoiceD.appendChild(btnTextD)
 
       console.log("showAnswers is connected")
-  }
+    }
+
   showAnswers()
   }
   showQuestion()
+
+   //listen for correct answer
+   let wrongMessage = function(){
+    let wrongText = "Wrong Answer!"
+    wrongAnswer.textContent = wrongText
+    responseMsg.appendChild(wrongAnswer)
+  }
+  let correctMessage = function(){
+    let correctText = "Correct Answer!"
+    correctAnswer.textContent = correctText
+    responseMsg.appendChild(correctAnswer)
+  }
+
+  multChoiceA.addEventListener("click", function(){
+    if (theQuestions[questionIndex].answer[0].response === false){
+      wrongMessage()
+      secCountdown -=5
+    } else {
+      correctMessage()
+      score ++
+    }
+    resetCard()
+  })
+  multChoiceB.addEventListener("click", function(){
+    if (theQuestions[questionIndex].answer[1].response === false){
+      wrongMessage()
+      secCountdown -=5
+    } else {
+      correctMessage()
+      score ++
+    }   
+    resetCard()
+  })
+  multChoiceC.addEventListener("click", function(){
+    if (theQuestions[questionIndex].answer[2].response === false){
+      wrongMessage()
+      secCountdown -=5
+    } else {
+      correctMessage()
+      score ++
+    }   
+    resetCard()
+  })
+  multChoiceD.addEventListener("click", function(){
+    if (theQuestions[questionIndex].answer[3].response === false){
+      wrongMessage()
+      secCountdown -=5
+    } else {
+      correctMessage()
+      score ++
+    }   
+    resetCard()
+  })
+
+  function resetCard(){
+    placeQuestion.parentNode.removeChild(placeQuestion)
+    btnTextA.parentNode.removeChild(btnTextA)
+    btnTextB.parentNode.removeChild(btnTextB)
+    btnTextC.parentNode.removeChild(btnTextC)
+    btnTextD.parentNode.removeChild(btnTextD)
+    console.log("reset is connected")
+
+    nextQuestion()
+  }
+
+  function nextQuestion(){
+    questionIndex++
+    console.log("nextQ connected")
+    if (theQuestions.length > questionIndex){
+      showQuestion()
+    } else {
+      theCard.style.display = "none"
+  }
+}
+
+  function quizEnd(){
+    if (theQuestions.length == questionIndex){
+      
+    }
+    scoreCard()
+    console.log("quizEnd is connected")
+  }
+
+ function scoreCard(){
+   quizEnd()
+   console.log("scorecard function connected")
+ }
   console.log("genQuiz is connected")
 }
+
+
   
