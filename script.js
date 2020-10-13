@@ -10,6 +10,10 @@ let multChoiceC = document.querySelector("#btnC")
 let multChoiceD = document.querySelector("#btnD")
 let btnSelected = document.querySelector(".btn")
 let responseMsg = document.querySelector("#responseHere")
+let scoreCardForm = document.querySelector(".scorecard")
+let accessScoreCard = document.querySelector(".clickscores")
+let initials = document.querySelector("#initials")
+let submitBtn = document.querySelector("#submitBtn")
 
 const theQuestions =[
   {question: "stringA",
@@ -56,7 +60,7 @@ function setTime(){
       clearInterval(timerInterval);
       timeEl.style.display = "none";
       theCard.style.display = "none"
-      //stop quiz function here
+      window.location.href="./highscore.html"
     }
   }, 1000);
 
@@ -117,6 +121,7 @@ function generateQuiz(){
     wrongAnswer.textContent = wrongText
     responseMsg.appendChild(wrongAnswer)
   }
+
   let correctMessage = function(){
     let correctText = "Correct Answer!"
     correctAnswer.textContent = correctText
@@ -181,23 +186,25 @@ function generateQuiz(){
     if (theQuestions.length > questionIndex){
       showQuestion()
     } else {
-      theCard.style.display = "none"
+      quizEnd()
   }
 }
 
   function quizEnd(){
-    if (theQuestions.length == questionIndex){
-      
-    }
+    secCountdown =- secCountdown
     scoreCard()
     console.log("quizEnd is connected")
   }
 
  function scoreCard(){
-   quizEnd()
+   window.location.href="./highscore.html"
+   //initials.addEventListener("click", function(){
+     //console.log(initials.value)
+   
    console.log("scorecard function connected")
- }
+ //})
   console.log("genQuiz is connected")
+}
 }
 
 
