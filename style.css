@@ -14,14 +14,31 @@ header {
   margin-bottom: 8%;
 }
 
+#scoresHeader {
+  color: teal;
+}
+
+#scorePosted {
+  color: purple;
+  font-size: xx-large;
+}
+
 .container {
   text-align: center;
+}
+
+li {
+  list-style-type: none;
 }
 
 /*Button design*/
 button {
   font-size: x-large;
   margin-top: 3%;
+}
+
+.btnhidden {
+  display: none
 }
 
 .card {
