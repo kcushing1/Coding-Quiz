@@ -92,8 +92,6 @@ function generateQuiz(){
       let listQuestion = theQuestions[questionIndex].question
       placeQuestion.textContent = listQuestion
       questionEl.appendChild(placeQuestion)
-         
-    console.log("showQs is connected")
   
     //show answers as buttons
     function showAnswers(){
@@ -219,33 +217,26 @@ function generateQuiz(){
     JSON.stringify(localStorage.setItem("mostRecentScore", finalScore))
 
     goToScoreCard()
-    //post the score to page
-    let scorePosted = document.createElement("h5")
-    let scorePostedHere = document.getElementById("scorePosted")
-    scorePosted.innerText = "" + finalScore + ""
-    scorePostedHere.appendChild(scorePosted)
-
-    console.log("quizEnd is connected")
   }
 
   //open the highscore window
  function goToScoreCard(){
    window.location.href="./highscore.html" 
-   
  }
 
 })
 }
 
-
-
-//see works cited, James Q Quick
 //scorecard specific
-const highScoresList = document.querySelector("#highScoresList")
-const recentScore = JSON.parse(localStorage.getItem("highscores")) 
-
-
-
+function displayUserScore(){
+  let finalScore = JSON.parse(localStorage.getItem("mostRecentScore"))
+  //post the score to page
+  let scorePosted = document.createElement("h5")
+  let scorePostedHere = document.getElementById("scorePosted")
+  scorePosted.innerText = "" + finalScore + ""
+  scorePostedHere.appendChild(scorePosted)
+}
+displayUserScore()
 
 nameBtn.addEventListener("click", function(event){
   event.preventDefault()
@@ -258,9 +249,7 @@ nameBtn.addEventListener("click", function(event){
   }
   scoreKeep.push(newestScore)
 
-  console.log("addToScoreCard connected")
-  console.log(newestScore.user)
-  console.log(scoreKeep)
+ 
   addToScoreCard()
   
   
@@ -270,7 +259,7 @@ function addToScoreCard(){
       let newLi = document.createElement("li")
       let inputUserInitials = scoreKeep[scoreKeep.length - 1].user
       let inputUserScore = scoreKeep[scoreKeep.length - 1].score
-      newLi.textContent = inputUserInitials + " - " + inputUserScore
+      newLi.textContent = inputUserInitials + " : " + inputUserScore
       highScoresList.appendChild(newLi)
 
   console.log("scorecard button connected")
