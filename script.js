@@ -1,3 +1,4 @@
+//grabbing all my HTML elements
 let startBtn = document.querySelector("#start");
 let timeEl = document.querySelector(".time");
 let questionEl = document.querySelector(".questions-here")
@@ -13,7 +14,7 @@ let responseMsg = document.querySelector("#responseHere")
 let scoreCardForm = document.querySelector(".scorecard")
 let accessScoreCard = document.querySelector(".clickscores")
 let name = document.querySelector("#name")
-let submitBtn = document.querySelector("#submitBtn")
+let nameBtn = document.querySelector("#nameBtn")
 
 const theQuestions =[
   {question: "stringA",
@@ -51,18 +52,20 @@ const theQuestions =[
     ]},
 ]
 
+//start the timer
 function setTime(){
   let timerInterval = setInterval(function(){
     secCountdown--;
     timeEl.textContent = "Time: " + secCountdown;
 
+    //time can be negative if all questions answered wrong
     if(secCountdown == 0 || secCountdown < 0){
       clearInterval(timerInterval);
       timeEl.style.display = "none";
       theCard.style.display = "none"
       window.location.href="./highscore.html"
     }
-  }, 3000);
+  }, 3000);//set for 30 sec--> change to 90 sec?
 }
 
 startBtn.addEventListener("click", function(){
@@ -118,9 +121,10 @@ function generateQuiz(){
     wrongAnswer.textContent = wrongText
     responseMsg.appendChild(wrongAnswer)
 
+    //have the message disappear when the next question is displayed
     setTimeout(function(){
       responseMsg.removeChild(wrongAnswer)
-    }, 1500)
+    }, 1000)
   }
 
   let correctMessage = function(){
@@ -128,12 +132,15 @@ function generateQuiz(){
     correctAnswer.textContent = correctText
     responseMsg.appendChild(correctAnswer)
 
+    //have the message disappear when the next question is displayed
     setTimeout(function(){
       responseMsg.removeChild(correctAnswer)
-    }, 1500)
+    }, 1000)
   }
 
     //the chosen answer promps correct or incorrect
+    //5 sec subtracted from timer if wrong
+    //score increased by 1 if correct
   multChoiceA.addEventListener("click", function(){
     if (theQuestions[questionIndex].answer[0].response === false){
       wrongMessage()
@@ -144,7 +151,7 @@ function generateQuiz(){
     }
     setTimeout(function(){
       resetCard()
-    }, 1500)
+    }, 1000)
 
   multChoiceB.addEventListener("click", function(){
     if (theQuestions[questionIndex].answer[1].response === false){
@@ -156,7 +163,7 @@ function generateQuiz(){
     }   
     setTimeout(function(){
       resetCard()
-    }, 1500)
+    }, 1000)
   })
 
   multChoiceC.addEventListener("click", function(){
@@ -169,7 +176,7 @@ function generateQuiz(){
     }   
     setTimeout(function(){
       resetCard()
-    }, 1500)
+    }, 1000)
   })
 
   multChoiceD.addEventListener("click", function(){
@@ -182,7 +189,7 @@ function generateQuiz(){
     }   
     setTimeout(function(){
       resetCard()
-    }, 1500)
+    }, 1000)
   })
 
   //clear the card so it can reset with next question
@@ -207,49 +214,65 @@ function generateQuiz(){
 }
 
   function quizEnd(){
-    let finalScore = score
     secCountdown =- secCountdown
-    localStorage.setItem("mostRecentScore", finalScore)
+    let finalScore = score
+    JSON.stringify(localStorage.setItem("mostRecentScore", finalScore))
+
     goToScoreCard()
+    //post the score to page
+    let scorePosted = document.createElement("h5")
+    let scorePostedHere = document.getElementById("scorePosted")
+    scorePosted.innerText = "" + finalScore + ""
+    scorePostedHere.appendChild(scorePosted)
+
     console.log("quizEnd is connected")
   }
 
+  //open the highscore window
  function goToScoreCard(){
-   window.location.href="./highscore.html"
+   window.location.href="./highscore.html" 
+   
  }
 
 })
 }
 
+
+
 //see works cited, James Q Quick
-//scorecard specific, names in local storage
+//scorecard specific
 const highScoresList = document.querySelector("#highScoresList")
-let scorePosted = document.getElementById("scorePosted")
-const userInitials = form.name
-let mostRecentScore = localStorage.getItem("mostRecentScore") || []
-scorePosted.innerText = mostRecentScore
-const highScores = JSON.parse(localStorage.getItem("highscores"))
+const recentScore = JSON.parse(localStorage.getItem("highscores")) 
 
-submitBtn.addEventListener("click", function(event){
+
+
+
+nameBtn.addEventListener("click", function(event){
   event.preventDefault()
-  let scoreKeep = {
-    name : userInitials,
-    score : mostRecentScore
+  let finalScore = JSON.parse(localStorage.getItem("mostRecentScore"))
+  const userInitials = document.getElementById("name").value
+  scoreKeep = []
+  let newestScore = {
+    user: userInitials,
+    score: finalScore
   }
-  //highScores.push(scoreKeep)
+  scoreKeep.push(newestScore)
 
-  scoreCard()
-  console.log("submit button connected")
-  console.log(highScoresList)
-})
+  console.log("addToScoreCard connected")
+  console.log(newestScore.user)
+  console.log(scoreKeep)
+  addToScoreCard()
+  
+  
+  })
 
-function scoreCard(){
-  let newLi = document.createElement("li")
-  newLi.textContent = userInitials + " - " + mostRecentScore
-  highScoresList.appendChild(newLi)
+function addToScoreCard(){
+      let newLi = document.createElement("li")
+      let inputUserInitials = scoreKeep[scoreKeep.length - 1].user
+      let inputUserScore = scoreKeep[scoreKeep.length - 1].score
+      newLi.textContent = inputUserInitials + " - " + inputUserScore
+      highScoresList.appendChild(newLi)
 
+  console.log("scorecard button connected")
 }
-
-
-console.log(userInitials)
 

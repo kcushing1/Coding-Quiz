@@ -1,7 +1,10 @@
-made with help from:
-Yalphi. "how to make a simple JavaScript quiz". Blog: simplestepscode.com. <https://simplestepscode.com/javascript-quiz-tutorial/>
+A Special Thanks To:
+
+Cook, Kyle. "Build A Quiz App With JavaScript," Web Dev Simplified. <https://www.youtube.com/watch?v=riDzcEQbX6k>
 
 Quick, James Q. "Build a Quiz App" series on Youtube.
-  a) "Build a Quiz App (7) - Create and Style the End Page" https://www.youtube.com/watch?v=o3MF_JmQxYg
-  b) "Build a Quiz App (8) - Save High Scores in Local Storage" https://www.youtube.com/watch?v=DFhmNLKwwGw
-  c) "Build a Quiz App (9) - Load and Display Scores from Local Storage" https://www.youtube.com/watch?v=jfOv18lCMmw
+  a) "Build a Quiz App (7) - Create and Style the End Page" <https://www.youtube.com/watch?v=o3MF_JmQxYg>
+  b) "Build a Quiz App (8) - Save High Scores in Local Storage" <https://www.youtube.com/watch?v=DFhmNLKwwGw>
+  c) "Build a Quiz App (9) - Load and Display Scores from Local Storage" <https://www.youtube.com/watch?v=jfOv18lCMmw>
+
+Yalphi. "how to make a simple JavaScript quiz". Blog: simplestepscode.com. <https://simplestepscode.com/javascript-quiz-tutorial/>
