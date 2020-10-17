@@ -4,7 +4,7 @@ HW #4
 ## Quiz Link
 
 The following link is to the deployed site:
-*link goes here*
+*https://kcushing1.github.io/Coding-Quiz/*
 
 ## User Story
 
