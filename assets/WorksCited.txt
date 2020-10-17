@@ -1,5 +1,7 @@
 A Special Thanks To:
 
+CoderZTeam. “12 Cool Facts About Programming and Coding You Didn’t Know.” Online: <https://gocoderz.com/blog/12-cool-facts-about-programming-and-coding-you-didnt-know/>
+
 Cook, Kyle. "Build A Quiz App With JavaScript," Web Dev Simplified. <https://www.youtube.com/watch?v=riDzcEQbX6k>
 
 Quick, James Q. "Build a Quiz App" series on Youtube.

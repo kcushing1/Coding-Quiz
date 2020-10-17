@@ -34,4 +34,4 @@ THEN I can save my initials and score
 
 The following animation demonstrates the application functionality:
 
-![code quiz](*put the gif file location here*)
+![code quiz]("./assets/HW4-CodingQuiz.mp4")

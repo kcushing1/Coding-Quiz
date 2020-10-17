@@ -17,37 +17,103 @@ let name = document.querySelector("#name")
 let nameBtn = document.querySelector("#nameBtn")
 
 const theQuestions =[
-  {question: "stringA",
+  {question: "In what year was the first computer virus created?",
     answer: [
-      {list: "answer 1a",
+      {list: "1983",
         response: true},
-      {list: "answer 1b",
+      {list: "1892",
         response: false},
-      {list: "answer 1c",
+      {list: "1946",
         response: false},
-      {list: "answer 1d",
+      {list: "1963",
         response: false},
     ]},
-    {question: "stringB",
+    {question: "What does 'www' in a url stand for?",
     answer: [
-      {list: "answer 2a",
+      {list: "Women's Worldwide Wrestling",
+        response: false},
+      {list: "Wicked Wild Wonders",
+        response: false},
+      {list: "World Wide Web",
         response: true},
-      {list: "answer 2b",
-        response: false},
-      {list: "answer 2c",
-        response: false},
-      {list: "answer 2d",
+      {list: "Wonderful Witch of the West",
         response: false},
     ]},
-    {question: "stringC",
+    {question: "What is currently the most popular coding language in use?",
     answer: [
-      {list: "answer 3a",
+      {list: "JavaScript",
         response: true},
-      {list: "answer 3b",
+      {list: "Ruby on Rails",
         response: false},
-      {list: "answer 3c",
+      {list: "Python",
         response: false},
-      {list: "answer 3d",
+      {list: "cursive",
+        response: false},
+    ]},
+    {question: "In what year was the first computer game created?",
+    answer: [
+      {list: "1974",
+        response: false},
+      {list: "1961",
+        response: true},
+      {list: "2002",
+        response: false},
+      {list: "1928",
+        response: false},
+    ]},
+    {question: "Why are the names Java and JavaScript so similar?",
+    answer: [
+      {list: "Because the creators of JavaScript liked playing practical jokes on people",
+        response: false},
+      {list: "Because they were trying to out-compete each other",
+        response: false},
+      {list: "Because the creators of both really liked cofee",
+        response: false},
+      {list: "Because Java was a successful language and JavaScript wanted to ride the waves of their marketing success",
+        response: true},
+    ]},
+    {question: "What does CSS stand for?",
+    answer: [
+      {list: "Cooling and Sanitation Station",
+        response: false},
+      {list: "Coding Shock Syndrome",
+        response: false},
+      {list: "Cascading Style Sheets",
+        response: true},
+      {list: "'Cause i Said So",
+        response: false},
+    ]},
+    {question: "What goes between <head> tags in HTML?",
+    answer: [
+      {list: "a brain",
+        response: false},
+      {list: "the Wizard of Oz",
+        response: false},
+      {list: "metadata",
+        response: true},
+      {list: "the body",
+        response: false},
+    ]},
+    {question: "What defines a variable in JavaScript?",
+    answer: [
+      {list: "fun, get, con",
+        response: false},
+      {list: "let, load, so",
+        response: false},
+      {list: "var, mar, par",
+        response: false},
+      {list: "var, let, const",
+        response: true},
+    ]},
+    {question: "Why was Javascrip created?",
+    answer: [
+      {list: "To produce dynamic web pages",
+        response: true},
+      {list: "To confuse unsuspecting programming students",
+        response: false},
+      {list: "To write laws regarding coffee production",
+        response: false},
+      {list: "To sadden dogs everywhere because their humans would like the internet too much to take them for walks",
         response: false},
     ]},
 ]
@@ -65,7 +131,7 @@ function setTime(){
       theCard.style.display = "none"
       window.location.href="./highscore.html"
     }
-  }, 3000);//set for 30 sec--> change to 90 sec?
+  }, 3000);//set for 30 sec
 }
 
 startBtn.addEventListener("click", function(){
@@ -228,13 +294,15 @@ function generateQuiz(){
 }
 
 //scorecard specific
+
+
 function displayUserScore(){
   let finalScore = JSON.parse(localStorage.getItem("mostRecentScore"))
   //post the score to page
-  let scorePosted = document.createElement("h5")
-  let scorePostedHere = document.getElementById("scorePosted")
-  scorePosted.innerText = "" + finalScore + ""
-  scorePostedHere.appendChild(scorePosted)
+  let scorePostedh1 = document.createElement("h1")
+  let scorePostedHere = document.querySelector("#scorePosted")
+  scorePostedh1.innerText = "" + finalScore + ""
+  scorePostedHere.appendChild(scorePostedh1)
 }
 displayUserScore()
 
@@ -261,7 +329,5 @@ function addToScoreCard(){
       let inputUserScore = scoreKeep[scoreKeep.length - 1].score
       newLi.textContent = inputUserInitials + " : " + inputUserScore
       highScoresList.appendChild(newLi)
-
-  console.log("scorecard button connected")
 }
 
